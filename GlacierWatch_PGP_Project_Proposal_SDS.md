@@ -240,7 +240,7 @@ Simultaneously)**
 
 **4. GitHub Repository Setup**
 
-**Repo URL:** https://github.com/frostbyte-team/glacierwatch
+**Repo URL:** https://github.com/Gayathhhrii/Glacier_Watch/blob/main/GlacierWatch_PGP_Project_Proposal_SDS.md
 
 **Initial Folder Structure**
 
