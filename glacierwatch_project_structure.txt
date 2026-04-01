@@ -1,0 +1,28 @@
+glacierwatch/
+│
+├── main2.py                         # The Master Orchestrator (Run this to start the app)
+├── run_retreat_analysis.py          # The Math Engine (Calculates the 33.40 km² loss)
+│
+├── src/                             # Source Code Directory
+│   │
+│   ├── gui/
+│   │   └── main_window.py           # PyQt5 desktop dashboard architecture
+│   │
+│   ├── logic/
+│   │   ├── ndsi_processor.py        # Phase 1: Spatial masking and NDSI thresholding 
+│   │   └── melt_predictor.py        # Phase 4: Random Forest execution and GeoTIFF export
+│   │
+│   └── utils/
+│       ├── dem_loader.py            # Phase 2: Topographic alignment and CRS handling
+│       └── folium_renderer.py       # Phase 5: Interactive HTML map generation
+│
+└── data/                            # Local Data Repository (Inputs & Outputs)
+    ├── NDSI_Gangotri_Jan2021.tif    # Winter baseline satellite imagery
+    ├── NDSI_Gangotri_Oct2021.tif    # Post-summer extent satellite imagery
+    ├── output_SRTMGL1.tif           # Digital Elevation Model (SRTM 30m)
+    ├── glaciers_projected.geojson   # GLIMS Glacier Boundary Vector
+    ├── rf_model_jan.joblib          # Saved Random Forest model
+    │
+    └── Temperature_data/            # Folder containing historical climate CSVs
+        ├── gangotri_temp_2021_01.csv
+        └── gangotri_temp_2021_10.csv
