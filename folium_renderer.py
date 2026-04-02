@@ -9,20 +9,20 @@ from matplotlib.colors import Normalize
 def render_glacier_map(prediction_tiff_path, geojson_path, output_html_path):
     print("    -> Generating interactive Folium map...")
 
-    # 1. Load the Glacier Boundary
+    # Load the Glacier Boundary
     glacier_gdf = gpd.read_file(geojson_path)
     
-    # Ensure it's in Lat/Lon (EPSG:4326) which Folium requires
+    # Lat/Lon (EPSG:4326) which Folium requires
     if glacier_gdf.crs and glacier_gdf.crs.to_epsg() != 4326:
         glacier_gdf = glacier_gdf.to_crs(epsg=4326)
 
-    # --- THE FIX: Clean the data for JSON serialization ---
+    # Clean the data for JSON serialization ---
     # Convert all non-geometry columns to strings so Folium doesn't crash on Timestamps
     for col in glacier_gdf.columns:
         if col != 'geometry':
             glacier_gdf[col] = glacier_gdf[col].astype(str)
 
-    # --- THE FIX: Use total_bounds to avoid centroid warnings ---
+    # Use total_bounds to avoid centroid warnings
     # Calculate map center using bounding box instead of centroid
     minx, miny, maxx, maxy = glacier_gdf.total_bounds
     center_lat = (miny + maxy) / 2
