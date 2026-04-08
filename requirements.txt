@@ -1,0 +1,17 @@
+# Desktop UI Framework
+PyQt5
+
+# Data Manipulation & ML
+pandas
+numpy
+scikit-learn
+joblib
+
+# Geospatial Analysis
+geopandas
+rasterio
+folium
+
+# Image Processing & Visualization
+scikit-image
+matplotlib
